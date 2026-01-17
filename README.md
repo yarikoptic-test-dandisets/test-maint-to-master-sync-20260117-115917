@@ -10,3 +10,7 @@ Test repository for validating automated sync workflow.
 
 ## Bugfix Release
 - Fixed bug in initial release
+
+## Critical Bugfix
+- Fixed major security issue
+- Updated dependencies
