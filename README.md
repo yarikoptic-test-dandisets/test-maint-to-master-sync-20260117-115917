@@ -7,3 +7,6 @@ Test repository for validating automated sync workflow.
 
 ## Features
 - Initial release
+
+## Bugfix Release
+- Fixed bug in initial release
