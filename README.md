@@ -2,7 +2,7 @@
 
 Test repository for validating automated sync workflow.
 
-## Version
+## Version (Maint Branch)
 1.0.1
 
 ## Features
