@@ -25,11 +25,13 @@ jobs:
           token: ${{ secrets.GH_PAT }}
 
       - name: Configure Git
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Configure git to use the PAT for all operations
-          git config --global url."https://oauth2:${{ secrets.GH_PAT }}@github.com/".insteadOf "https://github.com/"
+          # Set remote URL to use PAT explicitly
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
 
       - name: Fetch latest branches
         run: |
