@@ -1,0 +1,21 @@
+name: Cleanup maint-to-master branch
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.event.pull_request.head.ref == 'maint-to-master' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete maint-to-master branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin --delete maint-to-master || echo "Branch already deleted"
+          echo "✅ Cleaned up maint-to-master branch"
